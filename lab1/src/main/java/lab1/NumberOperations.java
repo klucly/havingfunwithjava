@@ -31,9 +31,11 @@ public class NumberOperations {
         ArraySorter sorter = new ArraySorter();
         Map<Class<?>, List<Object>> map = sorter.sort(numbers);
         System.out.println("Sorted map: " + map);
-
-        List<?> integersObjects = map.get(Integer.class);
-        List<Integer> integers = unsafeListCast(integersObjects);
+        List<Object> integersObjects = map.getOrDefault(Integer.class, new ArrayList<>());
+        List<Integer> integers = integersObjects.stream()
+            .filter(obj -> obj instanceof Integer)
+            .map(obj -> (Integer) obj)
+            .collect(java.util.stream.Collectors.toList());
         System.out.println("Integer list: " + integers);
     }
 
