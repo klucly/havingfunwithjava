@@ -8,10 +8,10 @@ class GildedRose {
     }
 
     public void updateItemQuality(Item item) {
-        if (item.name.equals("Aged Brie")) {
+        if (item.name.equals(Item.Names.AGED_BRIE)) {
             item.incrementQualityUpToThreshold();
 
-        } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+        } else if (item.name.equals(Item.Names.BACKSTAGE_PASSES)) {
             item.incrementQualityUpToThreshold();
             if (item.sellIn < 11) {
                 item.incrementQualityUpToThreshold();
@@ -21,22 +21,22 @@ class GildedRose {
                 item.incrementQualityUpToThreshold();
             }
 
-        } else if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+        } else if (!item.name.equals(Item.Names.SULFURAS)) {
             item.decrementQualityDownToThreshold();
         }
 
-        if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+        if (!item.name.equals(Item.Names.SULFURAS)) {
             item.sellIn = item.sellIn - 1;
         }
 
-        if (item.sellIn < 0) {
-            if (item.name.equals("Aged Brie")) {
-                item.incrementQualityUpToThreshold();
-            } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                item.quality = 0;
-            } else if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                item.decrementQualityDownToThreshold();
-            }
+        if (item.sellIn >= 0) return;
+
+        if (item.name.equals(Item.Names.AGED_BRIE)) {
+            item.incrementQualityUpToThreshold();
+        } else if (item.name.equals(Item.Names.BACKSTAGE_PASSES)) {
+            item.quality = 0;
+        } else if (!item.name.equals(Item.Names.SULFURAS)) {
+            item.decrementQualityDownToThreshold();
         }
     }
 
