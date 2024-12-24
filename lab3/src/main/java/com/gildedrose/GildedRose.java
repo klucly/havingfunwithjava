@@ -26,7 +26,7 @@ class GildedRose {
         }
 
         if (!item.name.equals(Item.Names.SULFURAS)) {
-            item.sellIn = item.sellIn - 1;
+            item.decrementSellIn();
         }
 
         if (item.sellIn >= 0) return;

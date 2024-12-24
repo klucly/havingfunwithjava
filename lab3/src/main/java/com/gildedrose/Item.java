@@ -24,6 +24,9 @@ public class Item {
             this.quality += 1;
         }
     }
+    public void decrementSellIn() {
+        this.sellIn -= 1;
+    }
 
     public static class Names {
         public static final String AGED_BRIE = "Aged Brie";
