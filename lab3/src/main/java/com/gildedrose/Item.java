@@ -16,4 +16,12 @@ public class Item {
     public String toString() {
         return String.format("%s, %s, %s", this.name, this.sellIn, this.quality);
     }
+    public void decrementQualityDownToThreshold() {
+        this.quality -= 1;
+    }
+    public void incrementQualityUpToThreshold() {
+        if (this.quality < 50) {
+            this.quality += 1;
+        }
+    }
 }
