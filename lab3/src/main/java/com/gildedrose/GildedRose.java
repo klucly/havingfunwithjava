@@ -22,11 +22,8 @@ class GildedRose {
                         }
                     }
                 }
-            } else {
-                if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                    item.decrementQualityDownToThreshold();
-                }
-                
+            } else if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                item.decrementQualityDownToThreshold();
             }
             if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
                 item.sellIn = item.sellIn - 1;
@@ -37,10 +34,8 @@ class GildedRose {
                 } else {
                     if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         item.quality = 0;
-                    } else {
-                        if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                            item.decrementQualityDownToThreshold();
-                        }
+                    } else if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                        item.decrementQualityDownToThreshold();
                     }
                 }
             }
